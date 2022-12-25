@@ -100,6 +100,13 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
+static const char *neovim[]   = { "st", "nvim", NULL};
+static const char *cmus[]     = { "st", "cmus", NULL};
+static const char *printscr[] = {"gnome-screenshot", "-i", NULL};
+static const char *pcmanfm[]  = {"pcmanfm", NULL};
+static const char *volman[]   = {"pavucontrol", NULL};
+static const char *blueman[]  = {"blueman-manager", NULL};
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -125,6 +132,13 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+    	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = printscr } },
+    	{ MODKEY|ShiftMask,             XK_k,      spawn,          {.v = pcmanfm } },
+    	{ MODKEY|ShiftMask,             XK_v,      spawn,          {.v = volman } },
+    	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = blueman } },
+    	{ MODKEY|ShiftMask,             XK_n,      spawn,          {.v = neovim } },
+    	{ MODKEY|ShiftMask,             XK_m,      spawn,          {.v = cmus } },
+
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -134,7 +148,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_x,      quit,           {0} },
 };
 
 /* button definitions */
