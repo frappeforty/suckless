@@ -83,10 +83,11 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 #include "tcl.c"
+#include "horizgrid.c"
 static Layout layouts[] = {
 	/* symbol               function */
-	{ "[]=",                tile }, /* first entry is default */
 	{ "|||",                tcl },
+	{ "###",                horizgrid },
 };
 
 /* key definitions */
